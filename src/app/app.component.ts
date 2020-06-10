@@ -1,20 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
  
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'elements1';
+  versionData = JSON.parse(JSON.stringify({}));
+  ngOnInit(): void {
+    const verStr = localStorage.getItem('appVersion');
+    this.versionData = JSON.parse(verStr);
+    console.log('this is version data: '+ JSON.stringify(this.versionData));
+    console.log('this is selection version: '+ this.versionData.app1);
+    
+  }
 
-  Button1() {
-    localStorage.setItem('demo', 'button1');
+  App1() {
+    localStorage.setItem('enableVersion', this.versionData.app1);
     location.reload();
   }
 
-  Button2() {
-    localStorage.setItem('demo', 'button2');
+  App2() {
+    localStorage.setItem('enableVersion', this.versionData.app2);
     location.reload();
   }
 }
+
