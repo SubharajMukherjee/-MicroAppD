@@ -61,3 +61,4 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js';
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+import 'document-register-element';
